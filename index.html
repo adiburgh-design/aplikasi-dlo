@@ -59,6 +59,7 @@
     .notice{border-left:5px solid #ffd267}
     .stat-card{border-top:4px solid #ffd267}
     .detail-panel{background:#f2f8f7;border-radius:16px;padding:20px}
+    .dskp-screen{display:none;animation:rise .36s ease both}.dskp-screen.active{display:block}.dskp-content{min-height:180px;background:linear-gradient(135deg,#f2fbfb,#fff8df);border:1px solid #cfe5e6;border-radius:18px;padding:24px;font-size:1.08rem;line-height:1.75;white-space:pre-line}.dskp-controls{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:22px}
     @media(max-width:700px){.score-input{max-width:none}.podcast-art{min-height:250px}.section-top{align-items:flex-start}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
@@ -73,8 +74,7 @@
    <div class="header-inner max-w-6xl mx-auto px-4 pt-6 pb-4 md:pt-8">
     <div class="flex flex-wrap items-center justify-between gap-5">
      <div class="flex items-center gap-4">
-      <div class="brand-icon" aria-hidden="true">
-       <i data-lucide="mic-2"></i>
+      <div class="brand-icon" aria-hidden="true"><i data-lucide="mic-2"></i>
       </div>
       <div>
        <p data-template-id="brand-kicker" class="canva-text font-bold uppercase tracking-widest mb-1" style="color: rgb(255, 210, 103); font-weight: 700; font-style: normal; font-size: 12px;">BAHASA MELAYU · TAHUN 5</p>
@@ -82,7 +82,8 @@
       </div>
      </div><span data-template-id="simulation-banner" class="canva-tag badge" style="background: rgb(255, 240, 189); color: rgb(104, 71, 11); font-weight: 700; font-style: normal; font-size: 13px;">Profil contoh dilabel SIMULASI</span>
     </div>
-    <nav aria-label="Navigasi utama" class="flex gap-2 overflow-x-auto mt-7 pb-3" id="nav"><button type="button" class="canva-button nav-btn" data-page="home" data-template-id="nav-home" style="font-weight: 700; font-style: normal; font-size: 16px;">Utama</button> <button type="button" class="canva-button nav-btn" data-page="learning" data-template-id="nav-learning" style="font-weight: 700; font-style: normal; font-size: 16px;">Pembelajaran</button> <button type="button" class="canva-button nav-btn" data-page="activity" data-template-id="nav-activity" style="font-weight: 700; font-style: normal; font-size: 16px;">Aktiviti Interaktif</button> <button type="button" class="canva-button nav-btn" data-page="assessment" data-template-id="nav-assessment" style="font-weight: 700; font-style: normal; font-size: 16px;">Pentaksiran</button> <button type="button" class="canva-button nav-btn" data-page="teacher" data-template-id="nav-teacher" style="font-weight: 700; font-style: normal; font-size: 16px;">Dashboard Guru</button> <button type="button" class="canva-button nav-btn" data-page="student" data-template-id="nav-student" style="font-weight: 700; font-style: normal; font-size: 16px;">Dashboard Murid</button> <button type="button" class="canva-button nav-btn" data-page="recommendations" data-template-id="nav-recommendations" style="font-weight: 700; font-style: normal; font-size: 16px;">Cadangan Peribadi</button>
+    <nav aria-label="Navigasi utama" class="flex gap-2 overflow-x-auto mt-7 pb-3" id="nav">
+     <button type="button" class="canva-button nav-btn" data-page="home" data-template-id="nav-home" style="font-weight: 700; font-style: normal; font-size: 16px;">Utama</button> <button type="button" class="canva-button nav-btn" data-page="learning" data-template-id="nav-learning" style="font-weight: 700; font-style: normal; font-size: 16px;">Pembelajaran</button> <button type="button" class="canva-button nav-btn" data-page="dskp" data-template-id="nav-dskp" style="font-weight: 700; font-style: normal; font-size: 16px;">DSKP Bahasa Melayu Tahun 5</button> <button type="button" class="canva-button nav-btn" data-page="activity" data-template-id="nav-activity" style="font-weight: 700; font-style: normal; font-size: 16px;">Aktiviti Interaktif</button> <button type="button" class="canva-button nav-btn" data-page="assessment" data-template-id="nav-assessment" style="font-weight: 700; font-style: normal; font-size: 16px;">Pentaksiran</button> <button type="button" class="canva-button nav-btn" data-page="teacher" data-template-id="nav-teacher" style="font-weight: 700; font-style: normal; font-size: 16px;">Dashboard Guru</button> <button type="button" class="canva-button nav-btn" data-page="student" data-template-id="nav-student" style="font-weight: 700; font-style: normal; font-size: 16px;">Dashboard Murid</button> <button type="button" class="canva-button nav-btn" data-page="recommendations" data-template-id="nav-recommendations" style="font-weight: 700; font-style: normal; font-size: 16px;">Cadangan Peribadi</button>
     </nav>
    </div>
   </header>
@@ -90,18 +91,18 @@
    <p id="notice" role="status" aria-live="polite" class="notice hidden mb-5 card p-4 font-semibold"></p>
    <section id="home" class="pane active" aria-labelledby="home-heading">
     <div class="hero-panel grid md:grid-cols-5 gap-8 items-center">
-     <div class="md:col-span-3 relative z-10"><span data-template-id="home-eyebrow" class="canva-tag badge inline-block mb-5" style="background: rgb(255, 240, 189); color: rgb(104, 71, 11); font-weight: 700; font-style: normal; font-size: 14px;">BELAJAR · RANCANG · RAKAM</span>
+     <div class="md:col-span-3 relative z-10">
+      <span data-template-id="home-eyebrow" class="canva-tag badge inline-block mb-5" style="background: rgb(255, 240, 189); color: rgb(104, 71, 11); font-weight: 700; font-style: normal; font-size: 14px;">BELAJAR · RANCANG · RAKAM</span>
       <h2 id="home-heading" data-template-id="home-heading" class="canva-text font-bold leading-tight mb-5" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">Suara kumpulan kamu, cerita pembelajaran kamu.</h2>
       <p data-template-id="home-description" class="canva-text leading-relaxed max-w-xl mb-7" style="color: rgb(53, 84, 106); font-weight: 400; font-style: normal; font-size: 16px;">Aplikasi Bahasa Melayu Tahun 5 untuk merancang podcast secara berkumpulan. Rujuk video pembelajaran asal, sediakan skrip bersama dan dapatkan penilaian guru menggunakan rubrik cadangan.</p>
-      <div class="flex flex-wrap gap-3"><button type="button" data-go="learning" data-template-id="home-learn-button" class="canva-button action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Lihat pembelajaran</button> <button type="button" data-go="activity" data-template-id="home-plan-button" class="canva-button nav-btn" style="background: rgb(255, 255, 255); color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Rancang podcast</button>
+      <div class="flex flex-wrap gap-3">
+       <button type="button" data-go="learning" data-template-id="home-learn-button" class="canva-button action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Lihat pembelajaran</button> <button type="button" data-go="activity" data-template-id="home-plan-button" class="canva-button nav-btn" style="background: rgb(255, 255, 255); color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Rancang podcast</button>
       </div>
      </div>
      <div class="card podcast-art card-hover p-7 md:col-span-2 text-center flex flex-col items-center justify-center gap-6">
-      <div class="art-circle" aria-hidden="true">
-       <i data-lucide="mic-2"></i>
+      <div class="art-circle" aria-hidden="true"><i data-lucide="mic-2"></i>
       </div>
-      <div class="wave" aria-hidden="true">
-       <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
       <div class="relative">
        <p data-template-id="home-card-title" class="canva-text font-bold mb-2" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 22px;">Satu projek, banyak suara!</p>
@@ -111,21 +112,18 @@
     </div>
    </section>
    <section id="learning" class="pane" aria-labelledby="learning-heading">
-    <div class="section-top">
-     <span class="section-symbol" aria-hidden="true"><i data-lucide="play-circle"></i></span>
+    <div class="section-top"><span class="section-symbol" aria-hidden="true"><i data-lucide="play-circle"></i></span>
      <h2 id="learning-heading" data-template-id="learning-heading" class="canva-text font-bold" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">Halaman Pembelajaran</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-5">
      <div class="card card-hover p-6">
-      <div class="video-art mb-5" aria-hidden="true">
-       <i data-lucide="play-circle"></i>
+      <div class="video-art mb-5" aria-hidden="true"><i data-lucide="play-circle"></i>
       </div>
       <h3 data-template-id="video-title" class="canva-text font-bold mb-3" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 19px;">Video pembelajaran asal: video tuto.MOV</h3>
       <p data-template-id="video-explanation" class="canva-text mb-5 leading-relaxed" style="color: rgb(53, 84, 106); font-weight: 400; font-style: normal; font-size: 16px;">Video asal pada halaman sumber ialah bahan pembelajaran utama. Kandungannya tidak dapat dibaca di sini; tonton video tersebut dan rujuk guru sebelum menulis isi podcast. Pautan membuka halaman video asal dalam tab baharu.</p><a href="https://sites.google.com/moe-dl.edu.my/kumpulan5dlo/video-pembelajaran" target="_blank" rel="noopener noreferrer" data-template-id="video-link" class="canva-link action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Buka halaman video asal ↗</a>
      </div>
      <div class="card p-6">
-      <div class="section-symbol mb-5" aria-hidden="true">
-       <i data-lucide="book-open"></i>
+      <div class="section-symbol mb-5" aria-hidden="true"><i data-lucide="book-open"></i>
       </div>
       <h3 data-template-id="content-heading" class="canva-text font-bold mb-3" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 19px;">Ruang kandungan pembelajaran</h3>
       <p data-template-id="content-placeholder" class="canva-text leading-relaxed" style="color: rgb(53, 84, 106); font-weight: 400; font-style: normal; font-size: 16px;">Kandungan boleh dikemas kini selepas video ditonton dan disahkan oleh guru. Buat masa ini, sila rujuk terus video asal. Tiada nota atau fakta topik ditambah tanpa sumber yang dapat disemak.</p>
@@ -133,8 +131,7 @@
     </div>
    </section>
    <section id="activity" class="pane" aria-labelledby="activity-heading">
-    <div class="section-top">
-     <span class="section-symbol" aria-hidden="true"><i data-lucide="notebook-pen"></i></span>
+    <div class="section-top"><span class="section-symbol" aria-hidden="true"><i data-lucide="notebook-pen"></i></span>
      <h2 id="activity-heading" data-template-id="activity-heading" class="canva-text font-bold" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">Aktiviti Interaktif: Rancang Podcast</h2>
     </div>
     <p data-template-id="activity-intro" class="canva-text mb-6 max-w-3xl" style="color: rgb(53, 84, 106); font-weight: 400; font-style: normal; font-size: 16px;">Isi rancangan kumpulan. Semakan di bawah hanya memeriksa kelengkapan ruang, bukan ketepatan isi; guru perlu menyemak kandungan berdasarkan video.</p>
@@ -142,99 +139,115 @@
      <div class="accent-strip"></div>
      <div class="p-5 md:p-7 space-y-5">
       <div class="grid md:grid-cols-2 gap-5">
-       <div>
-        <label for="plan-student" data-template-id="plan-student-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Pilih profil atau murid baharu</label><select id="plan-student" class="field"></select>
+       <div><label for="plan-student" data-template-id="plan-student-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Pilih profil atau murid baharu</label><select id="plan-student" class="field"></select>
        </div>
-       <div>
-        <label for="plan-name" data-template-id="plan-name-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Nama murid</label><input id="plan-name" class="field" required="" maxlength="80">
+       <div><label for="plan-name" data-template-id="plan-name-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Nama murid</label><input id="plan-name" class="field" required="" maxlength="80">
        </div>
-       <div>
-        <label for="plan-group" data-template-id="plan-group-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Nama kumpulan</label><input id="plan-group" class="field" required="" maxlength="80">
+       <div><label for="plan-group" data-template-id="plan-group-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Nama kumpulan</label><input id="plan-group" class="field" required="" maxlength="80">
        </div>
-       <div>
-        <label for="plan-role" data-template-id="plan-role-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Peranan dalam kumpulan</label><input id="plan-role" class="field" required="" maxlength="80">
+       <div><label for="plan-role" data-template-id="plan-role-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Peranan dalam kumpulan</label><input id="plan-role" class="field" required="" maxlength="80">
        </div>
-       <div>
-        <label for="plan-title" data-template-id="plan-title-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Tajuk podcast</label><input id="plan-title" class="field" required="" maxlength="120">
+       <div><label for="plan-title" data-template-id="plan-title-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Tajuk podcast</label><input id="plan-title" class="field" required="" maxlength="120">
        </div>
-       <div>
-        <label for="plan-status" data-template-id="plan-status-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Status kemajuan</label><select id="plan-status" class="field"><option value="Merancang">Merancang</option><option value="Menulis skrip">Menulis skrip</option><option value="Merakam">Merakam</option><option value="Dihantar">Dihantar</option></select>
+       <div><label for="plan-status" data-template-id="plan-status-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Status kemajuan</label><select id="plan-status" class="field"><option value="Merancang">Merancang</option><option value="Menulis skrip">Menulis skrip</option><option value="Merakam">Merakam</option><option value="Dihantar">Dihantar</option></select>
        </div>
       </div>
-      <div>
-       <label for="plan-outline" data-template-id="plan-outline-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Rangka isi berdasarkan video</label><textarea id="plan-outline" rows="3" class="field" maxlength="2500"></textarea>
+      <div><label for="plan-outline" data-template-id="plan-outline-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Rangka isi berdasarkan video</label><textarea id="plan-outline" rows="3" class="field" maxlength="2500"></textarea>
       </div>
-      <div>
-       <label for="plan-script" data-template-id="plan-script-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Draf skrip podcast</label><textarea id="plan-script" rows="4" class="field" maxlength="5000"></textarea>
+      <div><label for="plan-script" data-template-id="plan-script-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Draf skrip podcast</label><textarea id="plan-script" rows="4" class="field" maxlength="5000"></textarea>
       </div>
       <div class="detail-panel">
        <h3 data-template-id="review-heading" class="canva-text font-bold mb-2" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 19px;">Semakan tugasan</h3>
        <p id="review-output" aria-live="polite"></p>
       </div>
-      <div class="flex flex-wrap gap-3">
-       <button type="submit" id="save-plan" data-template-id="save-plan-button" class="canva-button action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Simpan perancangan</button><button type="button" id="review-plan" data-template-id="review-plan-button" class="canva-button nav-btn" style="background: rgb(255, 255, 255); color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Semak kelengkapan</button>
+      <div class="flex flex-wrap gap-3"><button type="submit" id="save-plan" data-template-id="save-plan-button" class="canva-button action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Simpan perancangan</button><button type="button" id="review-plan" data-template-id="review-plan-button" class="canva-button nav-btn" style="background: rgb(255, 255, 255); color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Semak kelengkapan</button>
       </div>
       <p data-template-id="activity-feedback" class="canva-text" style="color: rgb(53, 84, 106); font-weight: 400; font-style: normal; font-size: 16px;">Maklum balas guru dan markah akan muncul pada Dashboard Murid selepas guru membuat penilaian.</p>
      </div>
     </form>
    </section>
    <section id="assessment" class="pane" aria-labelledby="assessment-heading">
-    <div class="section-top">
-     <span class="section-symbol" aria-hidden="true"><i data-lucide="clipboard-check"></i></span>
+    <div class="section-top"><span class="section-symbol" aria-hidden="true"><i data-lucide="clipboard-check"></i></span>
      <h2 id="assessment-heading" data-template-id="assessment-heading" class="canva-text font-bold" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">Pentaksiran Produk Podcast</h2>
     </div>
     <p data-template-id="assessment-intro" class="canva-text mb-6 max-w-3xl" style="color: rgb(53, 84, 106); font-weight: 400; font-style: normal; font-size: 16px;">Rubrik cadangan berjumlah 100 markah. Guru mendengar dan memasukkan setiap markah; aplikasi hanya mengira jumlah dan tahap secara automatik.</p>
     <form id="score-form" class="card overflow-hidden">
      <div class="accent-strip"></div>
      <div class="p-5 md:p-7">
-      <div class="mb-5">
-       <label for="score-student" data-template-id="score-student-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Murid yang dinilai</label><select id="score-student" class="field"></select>
+      <div class="mb-5"><label for="score-student" data-template-id="score-student-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Murid yang dinilai</label><select id="score-student" class="field"></select>
       </div>
       <div id="criteria-grid" class="grid md:grid-cols-2 gap-4">
-       <div class="criterion-box">
-        <label for="criteria_content" data-template-id="label-content" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Ketepatan dan kualiti kandungan / 25</label><input id="criteria_content" class="field score-input criterion" type="number" min="0" max="25" step="1" required="">
+       <div class="criterion-box"><label for="criteria_content" data-template-id="label-content" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Ketepatan dan kualiti kandungan / 25</label><input id="criteria_content" class="field score-input criterion" type="number" min="0" max="25" step="1" required="">
        </div>
-       <div class="criterion-box">
-        <label for="criteria_language" data-template-id="label-language" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Penggunaan Bahasa Melayu / 20</label><input id="criteria_language" class="field score-input criterion" type="number" min="0" max="20" step="1" required="">
+       <div class="criterion-box"><label for="criteria_language" data-template-id="label-language" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Penggunaan Bahasa Melayu / 20</label><input id="criteria_language" class="field score-input criterion" type="number" min="0" max="20" step="1" required="">
        </div>
-       <div class="criterion-box">
-        <label for="criteria_pronunciation" data-template-id="label-pronunciation" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Sebutan dan intonasi / 15</label><input id="criteria_pronunciation" class="field score-input criterion" type="number" min="0" max="15" step="1" required="">
+       <div class="criterion-box"><label for="criteria_pronunciation" data-template-id="label-pronunciation" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Sebutan dan intonasi / 15</label><input id="criteria_pronunciation" class="field score-input criterion" type="number" min="0" max="15" step="1" required="">
        </div>
-       <div class="criterion-box">
-        <label for="criteria_structure" data-template-id="label-structure" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Struktur serta kelancaran penyampaian / 15</label><input id="criteria_structure" class="field score-input criterion" type="number" min="0" max="15" step="1" required="">
+       <div class="criterion-box"><label for="criteria_structure" data-template-id="label-structure" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Struktur serta kelancaran penyampaian / 15</label><input id="criteria_structure" class="field score-input criterion" type="number" min="0" max="15" step="1" required="">
        </div>
-       <div class="criterion-box">
-        <label for="criteria_creativity" data-template-id="label-creativity" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Kreativiti / 10</label><input id="criteria_creativity" class="field score-input criterion" type="number" min="0" max="10" step="1" required="">
+       <div class="criterion-box"><label for="criteria_creativity" data-template-id="label-creativity" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Kreativiti / 10</label><input id="criteria_creativity" class="field score-input criterion" type="number" min="0" max="10" step="1" required="">
        </div>
-       <div class="criterion-box">
-        <label for="criteria_teamwork" data-template-id="label-teamwork" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Kerjasama kumpulan / 10</label><input id="criteria_teamwork" class="field score-input criterion" type="number" min="0" max="10" step="1" required="">
+       <div class="criterion-box"><label for="criteria_teamwork" data-template-id="label-teamwork" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Kerjasama kumpulan / 10</label><input id="criteria_teamwork" class="field score-input criterion" type="number" min="0" max="10" step="1" required="">
        </div>
-       <div class="criterion-box">
-        <label for="criteria_audio" data-template-id="label-audio" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Kualiti audio / 5</label><input id="criteria_audio" class="field score-input criterion" type="number" min="0" max="5" step="1" required="">
+       <div class="criterion-box"><label for="criteria_audio" data-template-id="label-audio" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Kualiti audio / 5</label><input id="criteria_audio" class="field score-input criterion" type="number" min="0" max="5" step="1" required="">
        </div>
       </div>
       <div class="my-6 rounded-xl p-4 font-bold bg-[#fff0bd]" id="score-preview" aria-live="polite">
        Jumlah: — / 100 · Peratus: — · Tahap: —
       </div>
       <div class="grid md:grid-cols-2 gap-5 mb-5">
-       <div>
-        <label for="teacher-comment" data-template-id="comment-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Ulasan guru</label><textarea id="teacher-comment" class="field" rows="3" maxlength="1500"></textarea>
+       <div><label for="teacher-comment" data-template-id="comment-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Ulasan guru</label><textarea id="teacher-comment" class="field" rows="3" maxlength="1500"></textarea>
        </div>
-       <div>
-        <label for="guidance" data-template-id="guidance-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Tahap bimbingan</label><select id="guidance" class="field"><option value="Tiada bimbingan tambahan">Tiada bimbingan tambahan</option><option value="Pengukuhan">Pengukuhan</option><option value="Bimbingan intensif">Bimbingan intensif</option></select>
+       <div><label for="guidance" data-template-id="guidance-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Tahap bimbingan</label><select id="guidance" class="field"><option value="Tiada bimbingan tambahan">Tiada bimbingan tambahan</option><option value="Pengukuhan">Pengukuhan</option><option value="Bimbingan intensif">Bimbingan intensif</option></select>
        </div>
       </div><button type="submit" id="save-score" data-template-id="save-score-button" class="canva-button action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Simpan penilaian guru</button>
      </div>
     </form>
    </section>
+   <section id="dskp" class="pane" aria-labelledby="dskp-heading">
+    <div class="section-top"><span class="section-symbol" aria-hidden="true"><i data-lucide="book-marked"></i></span>
+     <h2 id="dskp-heading" data-template-id="dskp-heading" class="canva-text font-bold" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">DSKP Bahasa Melayu Tahun 5</h2>
+    </div>
+    <div class="card overflow-hidden">
+     <div class="accent-strip"></div>
+     <div class="p-5 md:p-7">
+      <div class="dskp-screen active" data-dskp-screen="1">
+       <h3 data-template-id="dskp-page-1-title" class="canva-text font-bold mb-4" style="color: rgb(23, 53, 74); font-weight: 700; font-size: 19px;">Standard Kandungan (SK)</h3>
+       <div data-template-id="dskp-page-1-text" class="canva-text dskp-content" style="color: rgb(23, 53, 74); font-size: 17px;">Kemahiran: Mendengar dan Bertutur
+Standard Kandungan (SK) 1.3: Bercerita, dan menceritakan perkara yang didengar, ditonton dan dibaca dengan sebutan dan intonasi yang betul</div>
+      </div>
+      <div class="dskp-screen" data-dskp-screen="2">
+       <h3 data-template-id="dskp-page-2-title" class="canva-text font-bold mb-4" style="color: rgb(23, 53, 74); font-weight: 700; font-size: 19px;">Standard Pembelajaran (SP)</h3>
+       <div data-template-id="dskp-page-2-text" class="canva-text dskp-content" style="color: rgb(23, 53, 74); font-size: 17px;">SP 1.3.1: Bercerita dengan sebutan yang betul, intonasi dan gaya yang sesuai.</div>
+      </div>
+      <div class="dskp-screen" data-dskp-screen="3">
+       <h3 data-template-id="dskp-page-3-title" class="canva-text font-bold mb-4" style="color: rgb(23, 53, 74); font-weight: 700; font-size: 19px;">Objektif Pembelajaran 1</h3>
+       <div data-template-id="dskp-page-3-text" class="canva-text dskp-content" style="color: rgb(23, 53, 74); font-size: 17px;">Murid dapat menyatakan masalah pencemaran yang terdapat dalam audio podcast.</div>
+      </div>
+      <div class="dskp-screen" data-dskp-screen="4">
+       <h3 data-template-id="dskp-page-4-title" class="canva-text font-bold mb-4" style="color: rgb(23, 53, 74); font-weight: 700; font-size: 19px;">Objektif Pembelajaran 2</h3>
+       <div data-template-id="dskp-page-4-text" class="canva-text dskp-content" style="color: rgb(23, 53, 74); font-size: 17px;">Murid dapat mendengar dan memberi respons terhadap tindakan yang patut dilakukan bagi menjaga alam sekitar.</div>
+      </div>
+      <div class="dskp-screen" data-dskp-screen="5">
+       <h3 data-template-id="dskp-page-5-title" class="canva-text font-bold mb-4" style="color: rgb(23, 53, 74); font-weight: 700; font-size: 19px;">Objektif Pembelajaran 3</h3>
+       <div data-template-id="dskp-page-5-text" class="canva-text dskp-content" style="color: rgb(23, 53, 74); font-size: 17px;">Murid dapat menyatakan masalah pencemaran yang terdapat dalam audio podcast.</div>
+      </div>
+      <div class="dskp-screen" data-dskp-screen="6">
+       <h3 data-template-id="dskp-page-6-title" class="canva-text font-bold mb-4" style="color: rgb(23, 53, 74); font-weight: 700; font-size: 19px;">Objektif Pembelajaran 4</h3>
+       <div data-template-id="dskp-page-6-text" class="canva-text dskp-content" style="color: rgb(23, 53, 74); font-size: 17px;">Murid dapat menghasilkan podcast sendiri berdasarkan aktiviti yang telah dilakukan.</div>
+      </div>
+      <div class="dskp-controls">
+       <button type="button" id="dskp-back" data-template-id="dskp-back-button" class="canva-button nav-btn" style="background: rgb(255, 255, 255); color: rgb(23, 53, 74); font-weight: 700;">Sebelum</button><button type="button" id="dskp-menu" data-template-id="dskp-menu-button" class="canva-button nav-btn" style="background: rgb(255, 255, 255); color: rgb(23, 53, 74); font-weight: 700;">Kembali ke menu DSKP</button><button type="button" id="dskp-next" data-template-id="dskp-next-button" class="canva-button action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700;">Seterusnya</button>
+      </div>
+     </div>
+    </div>
+   </section>
    <section id="teacher" class="pane" aria-labelledby="teacher-heading">
-    <div class="section-top">
-     <span class="section-symbol" aria-hidden="true"><i data-lucide="layout-dashboard"></i></span>
+    <div class="section-top"><span class="section-symbol" aria-hidden="true"><i data-lucide="layout-dashboard"></i></span>
      <h2 id="teacher-heading" data-template-id="teacher-heading" class="canva-text font-bold" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">Dashboard Guru</h2>
     </div>
     <div id="teacher-stats" class="grid sm:grid-cols-3 gap-4 mb-6" aria-live="polite"></div>
-    <div class="card p-5 mb-5">
-     <label for="teacher-filter" data-template-id="filter-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Tapis mengikut pencapaian</label><select id="teacher-filter" class="field max-w-xs"><option value="all">Semua</option><option value="high">Tinggi</option><option value="medium">Sederhana</option><option value="low">Rendah</option><option value="unmarked">Belum dinilai</option><option value="needs">Perlu bimbingan</option></select>
+    <div class="card p-5 mb-5"><label for="teacher-filter" data-template-id="filter-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 16px;">Tapis mengikut pencapaian</label><select id="teacher-filter" class="field max-w-xs"><option value="all">Semua</option><option value="high">Tinggi</option><option value="medium">Sederhana</option><option value="low">Rendah</option><option value="unmarked">Belum dinilai</option><option value="needs">Perlu bimbingan</option></select>
     </div>
     <div id="teacher-list" class="grid gap-4"></div>
     <div class="card p-5 mt-5">
@@ -243,22 +256,18 @@
     </div>
    </section>
    <section id="student" class="pane" aria-labelledby="student-heading">
-    <div class="section-top">
-     <span class="section-symbol" aria-hidden="true"><i data-lucide="user-round"></i></span>
+    <div class="section-top"><span class="section-symbol" aria-hidden="true"><i data-lucide="user-round"></i></span>
      <h2 id="student-heading" data-template-id="student-heading" class="canva-text font-bold" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">Dashboard Murid</h2>
     </div>
-    <div class="card p-5 md:p-7">
-     <label for="student-select" data-template-id="student-select-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Pilih profil murid</label><select id="student-select" class="field mb-5"></select>
+    <div class="card p-5 md:p-7"><label for="student-select" data-template-id="student-select-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Pilih profil murid</label><select id="student-select" class="field mb-5"></select>
      <div id="student-detail" aria-live="polite"></div>
     </div>
    </section>
    <section id="recommendations" class="pane" aria-labelledby="recommendations-heading">
-    <div class="section-top">
-     <span class="section-symbol" aria-hidden="true"><i data-lucide="lightbulb"></i></span>
+    <div class="section-top"><span class="section-symbol" aria-hidden="true"><i data-lucide="lightbulb"></i></span>
      <h2 id="recommendations-heading" data-template-id="recommendations-heading" class="canva-text font-bold" style="color: rgb(23, 53, 74); font-weight: 700; font-style: normal; font-size: 24px;">Cadangan Pembelajaran Peribadi</h2>
     </div>
-    <div class="card p-5 md:p-7">
-     <label for="recommend-select" data-template-id="recommend-select-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Pilih profil murid</label><select id="recommend-select" class="field mb-5"></select>
+    <div class="card p-5 md:p-7"><label for="recommend-select" data-template-id="recommend-select-label" class="canva-text" style="font-weight: 700; font-style: normal; font-size: 16px;">Pilih profil murid</label><select id="recommend-select" class="field mb-5"></select>
      <div id="recommend-detail" class="detail-panel" aria-live="polite"></div>
     </div>
    </section>
@@ -278,6 +287,9 @@
     function notice(message){$('notice').textContent=message;$('notice').classList.remove('hidden')}
     function navigate(page){document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('active',p.id===page));document.querySelectorAll('[data-page]').forEach(b=>b.setAttribute('aria-current',b.dataset.page===page?'page':'false'));window.scrollTo({top:0,behavior:'smooth'})}
     document.querySelectorAll('[data-page],[data-go]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.page||b.dataset.go)));
+    let dskpPage=1;
+    function showDskpPage(page){dskpPage=Math.max(1,Math.min(6,page));document.querySelectorAll('[data-dskp-screen]').forEach(s=>s.classList.toggle('active',Number(s.dataset.dskpScreen)===dskpPage));$('dskp-back').disabled=dskpPage===1;$('dskp-next').disabled=dskpPage===6;}
+    $('dskp-back').addEventListener('click',()=>showDskpPage(dskpPage-1));$('dskp-next').addEventListener('click',()=>showDskpPage(dskpPage+1));$('dskp-menu').addEventListener('click',()=>navigate('home'));showDskpPage(1);
     function options(){
       for(const id of ['plan-student','score-student','student-select','recommend-select']){
         const el=$(id),old=el.value;
