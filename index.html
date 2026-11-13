@@ -148,6 +148,28 @@
       </div>
      </div>
     </div>
+    <div class="card p-5 md:p-6 mb-5" aria-labelledby="student-profile-heading">
+     <div class="section-top mb-4">
+      <span class="section-symbol" aria-hidden="true"><i data-lucide="user-round"></i></span>
+      <div>
+       <h3 id="student-profile-heading" data-template-id="student-profile-heading" class="canva-text font-bold mb-1" style="color: rgb(23, 53, 74); font-weight: 700;">Profil murid</h3>
+       <p data-template-id="student-profile-intro" class="canva-text eco-help" style="color: rgb(53, 84, 106);">Simpan nama dan ID murid sebelum memulakan misi atau aktiviti.</p>
+      </div>
+     </div>
+     <form id="student-profile-form" class="grid md:grid-cols-2 gap-4">
+      <div>
+       <label for="profile-student-name" data-template-id="profile-student-name-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700;">Nama murid</label> <input id="profile-student-name" name="student_name" type="text" autocomplete="name" class="field" required="">
+      </div>
+      <div>
+       <label for="profile-student-id" data-template-id="profile-student-id-label" class="canva-text" style="color: rgb(23, 53, 74); font-weight: 700;">ID murid</label> <input id="profile-student-id" name="student_id" type="text" autocomplete="username" class="field" required="">
+      </div>
+      <div class="md:col-span-2 flex flex-wrap items-center gap-3">
+       <button type="submit" data-template-id="save-student-profile-button" class="canva-button action" style="background: rgb(23, 107, 135); color: rgb(255, 255, 255); font-weight: 700;">Simpan profil</button>
+       <p id="student-profile-feedback" class="font-semibold" role="status" aria-live="polite"></p>
+      </div>
+     </form>
+     <p id="saved-student-profile" class="detail-panel mt-4 hidden" role="status" aria-live="polite"></p>
+    </div>
     <div class="flex flex-wrap gap-3 items-center mb-5"><button id="eco-sound" type="button" class="nav-btn canva-button" aria-pressed="true"> <span data-template-id="eco-sound-on" class="canva-text" style="color: rgb(23, 53, 74);">Kesan bunyi: hidup</span> <span data-template-id="eco-sound-off" class="canva-text hidden" style="color: rgb(23, 53, 74);">Kesan bunyi: mati</span> </button>
      <p data-template-id="eco-session-note" class="canva-text eco-help" style="color: rgb(53, 84, 106);">Kemajuan dan fail audio EcoVoice hanya tersedia sepanjang sesi halaman ini; ia tidak disimpan secara kekal.</p>
     </div>
@@ -615,7 +637,7 @@ Standard Kandungan (SK) 1.3: Bercerita, dan menceritakan perkara yang didengar, 
     document.querySelectorAll('#plan-form input,#plan-form textarea').forEach(el=>el.addEventListener('input',review));
     document.querySelectorAll('.criterion').forEach(el=>el.addEventListener('input',preview));
     $('plan-form').addEventListener('submit',async e=>{
-      e.preventDefault();if(!ready){notice('Sambungan simpanan belum tersedia. Cuba lagi sebentar.');return}
+      e.preventDefault();if(!studentProfile?.name||!studentProfile?.id){notice('Sila simpan profil murid terlebih dahulu.');navigate('home');$('profile-student-name').focus();return}if(!ready){notice('Sambungan simpanan belum tersedia. Cuba lagi sebentar.');return}
       const existing=records.find(r=>r.__backendId===$('plan-student').value);
       if(!existing&&records.length>=999){notice('Had 999 rekod telah dicapai.');return}
       const status=$('plan-status').value;
@@ -625,7 +647,7 @@ Standard Kandungan (SK) 1.3: Bercerita, dan menceritakan perkara yang didengar, 
       try{const result=existing?await window.dataSdk.update({...existing,...data}):await window.dataSdk.create(data);notice(result.isOk?'Perancangan podcast berjaya disimpan.':'Gagal menyimpan perancangan. Cuba lagi.')}catch{notice('Gagal menyimpan perancangan. Cuba lagi.')}finally{btn.disabled=false}
     });
     $('score-form').addEventListener('submit',async e=>{
-      e.preventDefault();const r=records.find(x=>x.__backendId===$('score-student').value),sum=preview();
+      e.preventDefault();if(!studentProfile?.name||!studentProfile?.id){notice('Sila simpan profil murid terlebih dahulu.');navigate('home');$('profile-student-name').focus();return}const r=records.find(x=>x.__backendId===$('score-student').value),sum=preview();
       if(!ready){notice('Sambungan simpanan belum tersedia. Cuba lagi sebentar.');return}
       if(!r||sum===null){notice('Pilih murid dan isi markah mengikut had rubrik.');return}
       const data={...r,total_score:sum,percentage:sum,achievement_level:level(sum),teacher_comment:$('teacher-comment').value.trim()+'\nTahap bimbingan: '+$('guidance').value};
@@ -649,6 +671,22 @@ Standard Kandungan (SK) 1.3: Bercerita, dan menceritakan perkara yang didengar, 
     })();
 
     /* EcoVoice berdiri sendiri: tiada perubahan kepada rekod DLO. */
+    const studentProfile={name:sessionStorage.getItem('dlo_student_name')||'',id:sessionStorage.getItem('dlo_student_id')||''};
+    function renderStudentProfile(){
+      const saved=$('saved-student-profile');
+      if(studentProfile.name&&studentProfile.id){
+        $('profile-student-name').value=studentProfile.name;$('profile-student-id').value=studentProfile.id;
+        saved.textContent=`Profil disimpan: ${studentProfile.name} · ID: ${studentProfile.id}`;saved.classList.remove('hidden');
+      }
+    }
+    $('student-profile-form').addEventListener('submit',e=>{
+      e.preventDefault();
+      const name=$('profile-student-name').value.trim(),id=$('profile-student-id').value.trim();
+      if(!name||!id){$('student-profile-feedback').textContent='Sila isi nama dan ID murid terlebih dahulu.';return}
+      studentProfile.name=name;studentProfile.id=id;sessionStorage.setItem('dlo_student_name',name);sessionStorage.setItem('dlo_student_id',id);
+      renderStudentProfile();$('student-profile-feedback').textContent='Profil murid berjaya disimpan.';
+    });
+    renderStudentProfile();
     const eco={screen:'menu',done:[false,false,false,false],sounds:true,listens:0,question:null,selected:'',files:{},buffers:{},recording:null,stream:null,recorder:null,recordStart:0,playing:null,context:null,submittedFinal:false};
     const ecoNames=['Radar Pencemaran','Suara Wira','Studio Suara Hebat','Podcast Penyelamat Bumi'];
     const ecoBadges=['Detektif Audio','Wira Bersuara','Bintang Penyampai','Legenda EcoVoice'];
@@ -842,7 +880,10 @@ Standard Kandungan (SK) 1.3: Bercerita, dan menceritakan perkara yang didengar, 
       $('eco-sound-off').classList.toggle('hidden',eco.sounds);
       ecoSay(eco.sounds?'Kesan bunyi dihidupkan.':'Kesan bunyi dimatikan.');
     });
-    $('eco-start').addEventListener('click',()=>ecoOpenLevel(eco.done.findIndex(d=>!d)+1||1));
+    $('eco-start').addEventListener('click',()=>{
+      if(!studentProfile.name||!studentProfile.id){$('student-profile-feedback').textContent='Sila simpan profil murid terlebih dahulu.';navigate('home');$('profile-student-name').focus();return}
+      ecoOpenLevel(eco.done.findIndex(d=>!d)+1||1);
+    });
     $('eco-reset').addEventListener('click',ecoReset);
     document.querySelectorAll('[data-eco-home]').forEach(b=>b.addEventListener('click',()=>navigate('home')));
     document.querySelectorAll('[data-eco-menu]').forEach(b=>b.addEventListener('click',()=>{ecoScreen('menu');ecoSay('Peta pengembaraan dibuka.')}));
